@@ -13,11 +13,11 @@ namespace Capstone.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            //List<Tournaments> tournamentList = new List<Tournaments>();
+            List<Tournament> tournamentList = new List<Tournament>();
             //return View("Index", tournamentList);
             return View("Index");
         }
-        public ActionResult CreateTournament(TournamentModel model)
+        public ActionResult CreateTournament(Tournament model)
         {
             //// If the user has not logged in yet, make them log in
             //if (Session[SessionKeys.UserId] == null)
