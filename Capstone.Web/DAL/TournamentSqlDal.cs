@@ -41,16 +41,14 @@ namespace Capstone.Web.DAL
                         t.CompetitorLimit = Convert.ToInt32(reader["competitor_limit"]);  
 
                         listOfTourtnaments.Add(t);
-                    }
+                    } 
                 }
                 return listOfTourtnaments;
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                throw ex;
+                throw exception;
             }
         }
-
-
     }
 }
