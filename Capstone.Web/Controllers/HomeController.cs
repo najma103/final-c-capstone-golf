@@ -13,7 +13,7 @@ namespace Capstone.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            //List<Tournaments> tournamentList = new List<Tournaments>();
+            List<Tournament> tournamentList = new List<Tournament>();
             //return View("Index", tournamentList);
             return View("Index");
         }
