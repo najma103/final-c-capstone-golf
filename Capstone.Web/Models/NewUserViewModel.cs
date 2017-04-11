@@ -21,5 +21,10 @@ namespace Capstone.Web.Models
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Passwords do not match")]
         [Display(Name = "Confirm Password:")]
         public string ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "This field is required")]
+        [EmailAddress(ErrorMessage ="Please enter a valid e-mail address")]
+        [Display(Name ="Email Address")]
+        public string EmailAddress { get; set; }
     }
 }
