@@ -158,7 +158,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\CreateTournament.cshtml" />
-    <Content Include="Views\Tournament\Tournament.cshtml" />
+    <Content Include="Views\Tournament\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
