@@ -25,6 +25,11 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
+    <div>
+
+    </div>
+=======
     <header>
         <img src="~/Content/images/bowling.jpg" />
     </header>
@@ -42,5 +47,6 @@
     <footer >
         <p class="text-center">Team Golf &copy; @DateTime.Now.Year</p>
     </footer>
+>>>>>>> a623152aebe4852a72fecbc301ec1017d874433b
 </body>
 </html>
