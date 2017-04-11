@@ -5,20 +5,24 @@
 
 <h2>CreateTournament</h2>
 
-<div id="create">
+<div id="create" style="margin: 20px;">
 
     @using (Html.BeginForm("CreateTournament", "Home", FormMethod.Post))
     {
         <div>
-            @Html.TextBoxFor(m => m.GameType, new { placeholder = "Bowling" })
+            @Html.Label("Type of Game: \t\t")
+            @Html.TextBoxFor(m => m.GameType, new { placeholder = "i.e Bowling" })
             @Html.ValidationMessageFor(m => m.GameType)
         </div>
+        @*<div>@Html.Label("Total Players: ")</div>*@
         <div>
+            @Html.Label("Total Players: \t\t")
             @Html.TextBoxFor(m => m.MaxPlayers, new { placeholder = "Max # of Players" })
             @Html.ValidationMessageFor(m => m.MaxPlayers)
         </div>
         <div>
-            @Html.TextBoxFor(m => m.GameStartDate, new { placeholder = "Game start Date" })
+            @Html.Label("Tournament Start Date: \t\t")
+            @Html.TextBoxFor(m => m.GameStartDate, new { placeholder = "Tournament start Date" })
             @Html.ValidationMessageFor(m => m.GameStartDate)
         </div>
         <button>Create</button>
