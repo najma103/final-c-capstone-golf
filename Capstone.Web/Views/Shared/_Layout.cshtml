@@ -8,14 +8,30 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>_Layout</title>
+    <title>Tournaments - @ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/b6042e8b1f.js"></script>
 
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 </head>
 <body>
-    <div> 
-    </div>
+    <header>
+        <img src="~/Content/images/bowling.jpg" />
+    </header>
+    <nav>
+        <ul id="menu">
+            <li><a href="#">Home</a></li>
+            <li>@Html.ActionLink("Tournaments", "Index", "Home")</li>
+            <li>@Html.ActionLink("Create Tournament", "CreateTournament", "Home")</li>
+        </ul>
+    </nav>
+
+    <main>
+        @RenderBody()
+    </main>
+<div id="footer"></div>
 </body>
 </html>

@@ -1,0 +1,27 @@
+﻿@model Capstone.Web.Models.TournamentModel
+@{
+    ViewBag.Title = "CreateTournament";
+}
+
+<h2>CreateTournament</h2>
+
+<div id="create">
+
+    @using (Html.BeginForm("CreateTournament", "Home", FormMethod.Post))
+    {
+        <div>
+            @Html.TextBoxFor(m => m.GameType, new { placeholder = "Bowling" })
+            @Html.ValidationMessageFor(m => m.GameType)
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.MaxPlayers, new { placeholder = "Max # of Players" })
+            @Html.ValidationMessageFor(m => m.MaxPlayers)
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.GameStartDate, new { placeholder = "Game start Date" })
+            @Html.ValidationMessageFor(m => m.GameStartDate)
+        </div>
+        <button>Create</button>
+    }
+</div>
+
