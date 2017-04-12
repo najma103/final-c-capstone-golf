@@ -137,12 +137,14 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAL\MatchesSqlDal.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Crypto\HashProvider.cs" />
     <Compile Include="DAL\TournamentSqlDal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Match.cs" />
+    <Compile Include="Models\NewUserViewModel.cs" />
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -154,11 +156,11 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\RegisterNewUser.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\CreateTournament.cshtml" />
-    <Content Include="Views\Tournament\Detail.cshtml" />
+    <Content Include="Views\Tournament\Tournament.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
