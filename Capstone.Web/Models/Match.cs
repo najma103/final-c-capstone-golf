@@ -8,8 +8,12 @@ namespace Capstone.Web.Models
 {
     public class Match
     {
-        public List<User> Participants { get; set; }
+        public List<User> MatchList { get; set; }
+        public int MatchId { get; set; }
+        public int PlayerA { get; set; }
+        public int PlayerB { get; set; }
+        public int TournamentId { get; set; }
+        public string TournamentName { get; set; }
 
-        public int tournamentID { get; set; }
     }
 }
