@@ -11,12 +11,23 @@ namespace Capstone.Web.Controllers
     public class HomeController : Controller
     {
         private const string UsernameKey = "Bracket_Username";
+
+        private readonly IUserDAL userDal;
+
+        private readonly ITournamentDAL tournamentDal;
+
+        public HomeController(IUserDAL userDal, ITournamentDAL tournamentDal)
+        {
+            this.userDal = userDal;
+            this.tournamentDal = tournamentDal;
+        }
+
+
         // GET: Home
         public ActionResult Index()
         {
             List<Tournament> tournamentList = new List<Tournament>();
-            TournamentSqlDal DAL = new TournamentSqlDal();
-            tournamentList = DAL.getAllTournaments();
+            tournamentList = tournamentDal.getAllTournaments();
             return View("Index", tournamentList);
         }
         public ActionResult CreateTournament(Tournament model)

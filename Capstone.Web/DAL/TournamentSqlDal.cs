@@ -7,16 +7,14 @@ using Capstone.Web.Models;
 
 namespace Capstone.Web.DAL
 {
-    public class TournamentSqlDal
+    public class TournamentSqlDal : ITournamentDAL
     {
-        private string connectionString = @"Data Source=desktop-58f8ch1\sqlexpress;Initial Catalog=Capstone;Integrated Security=True";
-
+        private readonly string databaseConnectionString;
         private const string getAllTournamentsSql = "SELECT * FROM tournaments order by tournament_name";
 
-        public string ConnectionString
+        public TournamentSqlDal(string connectionString)
         {
-            get { return connectionString; }
-            set { connectionString = value; }
+            databaseConnectionString = connectionString;
         }
 
         public List<Tournament> getAllTournaments()
@@ -24,7 +22,7 @@ namespace Capstone.Web.DAL
             List<Tournament> listOfTourtnaments = new List<Tournament>();
             try
             {
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
                     conn.Open();
                     SqlCommand command = new SqlCommand(getAllTournamentsSql , conn);

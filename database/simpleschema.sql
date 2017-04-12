@@ -28,7 +28,7 @@ CREATE TABLE tournaments (
 
 	CONSTRAINT pk_tournament_id primary key (tournament_id),
 	CONSTRAINT fk_tournaments_game_id FOREIGN KEY (game_id) REFERENCES game_types(game_id),
-	CONSTRAINT fk_tournaments_organizer_id FOREIGN KEY (organizer_id) REFERENCES users(user_id)
+	CONSTRAINT fk_tournaments_organizer_id FOREIGN KEY (organizer_id) REFERENCES users(user_id),
 	
 );
 

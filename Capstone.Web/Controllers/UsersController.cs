@@ -6,11 +6,21 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using Capstone.Web.Models;
+using Capstone.Web.DAL;
 
 namespace Capstone.Web.Controllers
 {
     public class UsersController : HomeController
     {
+        private readonly IUserDAL userDal;
+
+
+        public UsersController(IUserDAL userDal)
+            : base(userDal)
+        {
+            this.userDal = userDal;
+        }
+
         [HttpGet]
         [Route("users/register")]
         public ActionResult RegisterNewUser()
@@ -38,12 +48,12 @@ namespace Capstone.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                /*var currentUser = userDAL.GetUser(model.Username);
+                var currentUser = userDal.GetUser(model.Username);
 
                 if (currentUser != null)
                 {
                     return View("Register", model);
-                }*/
+                }
             }
             return View("Register", model);
         }
