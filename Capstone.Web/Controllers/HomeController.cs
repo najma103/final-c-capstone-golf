@@ -14,21 +14,16 @@ namespace Capstone.Web.Controllers
 
         private readonly IUserDAL userDal;
 
-        private readonly ITournamentDAL tournamentDal;
-
-        public HomeController(IUserDAL userDal, ITournamentDAL tournamentDal)
+        public HomeController(IUserDAL userDal)
         {
             this.userDal = userDal;
-            this.tournamentDal = tournamentDal;
         }
 
 
         // GET: Home
         public ActionResult Index()
         {
-            List<Tournament> tournamentList = new List<Tournament>();
-            tournamentList = tournamentDal.getAllTournaments();
-            return View("Index", tournamentList);
+            return RedirectToAction("List", "Tournament");
         }
         public ActionResult CreateTournament(Tournament model)
         {
