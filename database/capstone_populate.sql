@@ -1,4 +1,10 @@
---Below creates userids for competitive entities.
+DELETE matches;
+DELETE tournament_competitors;
+DELETE tournaments;
+DELETE users;
+
+--ABOVE deletes all rows from the tables so we don't add duplicate rows on subsquent reruns of this script.
+--BELOW creates USER ids for competitive entities.
 
 INSERT INTO [dbo].[users] ([username], [email], [password], [role], [salt]) VALUES
 ('awranglers',
@@ -834,48 +840,48 @@ INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
 );
 
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('10',
-'20',
+('30',
+'40',
 '2'
 );
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('11',
-'21',
+('31',
+'41',
 '2'
 );
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('12',
-'22',
+('32',
+'42',
 '2'
 );
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('13',
-'23',
+('33',
+'43',
 '2'
 );
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('14',
-'24',
+('34',
+'44',
 '2'
 );
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('15',
-'25',
+('35',
+'45',
 '2'
 );
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('16',
-'26',
+('36',
+'46',
 '2'
 );
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('17',
-'27',
+('37',
+'47',
 '2'
 );
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('20',
-'21',
+('40',
+'41',
 '2'
 );
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
@@ -889,3 +895,68 @@ INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
 '2'
 );
 
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('50',
+'60',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('51',
+'61',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('52',
+'62',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('53',
+'63',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('54',
+'64',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('55',
+'65',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('56',
+'66',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('57',
+'67',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('60',
+'61',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('62',
+'63',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('64',
+'65',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('66',
+'67',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('60',
+'67',
+'3'
+);

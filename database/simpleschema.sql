@@ -1,9 +1,7 @@
-DROP TABLE users;
-DROP TABLE tournaments;
-DROP TABLE tournament_competitors;
 DROP TABLE matches;
-
-
+DROP TABLE tournament_competitors;
+DROP TABLE tournaments;
+DROP TABLE users;
 
 
 CREATE TABLE users (
