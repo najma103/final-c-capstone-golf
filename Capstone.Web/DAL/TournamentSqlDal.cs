@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+
 using Capstone.Web.Models;
 
 namespace Capstone.Web.DAL
@@ -19,7 +20,7 @@ namespace Capstone.Web.DAL
             set { connectionString = value; }
         }
 
-        public List<Tournament> getAllTournaments()
+        public List<Tournament> GetAllTournaments()
         {
             List<Tournament> listOfTourtnaments = new List<Tournament>();
             try

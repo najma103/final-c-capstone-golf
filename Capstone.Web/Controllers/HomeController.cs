@@ -14,10 +14,11 @@ namespace Capstone.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            List<Tournament> tournamentList = new List<Tournament>();
-            TournamentSqlDal DAL = new TournamentSqlDal();
-            tournamentList = DAL.getAllTournaments();
-            return View("Index", tournamentList);
+            List<Tournament> list = new List<Tournament>();
+            Tournament bracket = new Tournament();
+
+            list = bracket.GetAllTournaments();
+            return View("Index", list);
         }
         public ActionResult CreateTournament(Tournament model)
         {
@@ -32,7 +33,28 @@ namespace Capstone.Web.Controllers
             //    return View("CreateTournament", model);
             //}
             //return View("Index");
+            Tournament t = new Tournament();
+            //if(t.Name != "" && t.CompetitorLimit > 0 && t.CompetitorLimit <=16
+            //    && t.StartDate >= DateTime.UtcNow && t.EndDate > t.StartDate)
+            if(model.CompetitorLimit > 0 && model.CompetitorLimit <= 16)
+            {
+                // add to the database
+                int[] arr1 = new int[model.CompetitorLimit];
+                arr1 = t.GenerataFirstBracket(model.CompetitorLimit);
+
+                for (int i = 0; i < arr1.Length; i++)
+                {
+                    t.Brackets[i] = arr1[i];
+                }
+
+                return View("Brackets", model);
+            }
             return View("CreateTournament", model);
+        }
+
+        public ActionResult Brackets(Tournament model)
+        {
+            return View("Brackets");
         }
     }
 }
