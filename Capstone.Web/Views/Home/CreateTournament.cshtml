@@ -1,4 +1,4 @@
-﻿@model Capstone.Web.Models.TournamentModel
+﻿@model Capstone.Web.Models.Tournament
 @{
     ViewBag.Title = "CreateTournament";
 }
@@ -22,7 +22,7 @@
         </div>
         <div>
             @Html.Label("Tournament Start Date: \t\t")
-            @Html.TextBoxFor(m => m.GameStartDate, new { placeholder = "Tournament start Date" })
+            @Html.TextBoxFor(m => m.GameStartDate, new { placeholder = "Tournament Start Date" })
             @Html.ValidationMessageFor(m => m.GameStartDate)
         </div>
         <button>Create</button>

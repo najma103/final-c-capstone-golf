@@ -9,7 +9,7 @@ namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
-
+        private const string UsernameKey = "Bracket_Username";
         // GET: Home
         public ActionResult Index()
         {
@@ -31,6 +31,29 @@ namespace Capstone.Web.Controllers
             //}
             //return View("Index");
             return View("CreateTournament", model);
+        }
+        public bool IsAuthenticated
+        {
+            get
+            {
+                return Session[UsernameKey] != null;
+            }
+        }
+
+        public string CurrentUser
+        {
+            get
+            {
+                string username = string.Empty;
+
+                //Check to see if user cookie exists, if not create it
+                if (Session[UsernameKey] != null)
+                {
+                    username = (string)Session[UsernameKey];
+                }
+
+                return username;
+            }
         }
     }
 }
