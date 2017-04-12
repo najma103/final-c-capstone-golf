@@ -39,15 +39,14 @@ namespace Capstone.Web.Controllers
             if(model.CompetitorLimit > 0 && model.CompetitorLimit <= 16)
             {
                 // add to the database
+                Tournament t2 = new Tournament();
                 int[] arr1 = new int[model.CompetitorLimit];
-                arr1 = t.GenerataFirstBracket(model.CompetitorLimit);
+                arr1 = t2.GenerataFirstBracket(model.CompetitorLimit);
 
-                for (int i = 0; i < arr1.Length; i++)
-                {
-                    t.Brackets[i] = arr1[i];
-                }
 
-                return View("Brackets", model);
+                t.Brackets = arr1;
+
+            return View("Brackets", t);
             }
             return View("CreateTournament", model);
         }
