@@ -11,6 +11,7 @@ namespace Capstone.Web.DAL
     {
         private readonly string databaseConnectionString;
         private const string getAllTournamentsSql = "SELECT * FROM tournaments order by tournament_name";
+        private const string getATournamentSql = "SELECT * FROM tournaments WHERE tournament_id = @tournament_id";
 
         public TournamentSqlDal(string connectionString)
         {
@@ -54,7 +55,7 @@ namespace Capstone.Web.DAL
             Tournament tempTournament = new Tournament();
             try
             {
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
                     conn.Open();
 
