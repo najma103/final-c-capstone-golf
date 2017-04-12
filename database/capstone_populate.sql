@@ -1,9 +1,3 @@
-DELETE matches;
-DELETE tournament_competitors;
-DELETE tournaments;
-DELETE users;
-
---ABOVE deletes all rows from the tables so we don't add duplicate rows on subsquent reruns of this script.
 --BELOW creates USER ids for competitive entities.
 
 INSERT INTO [dbo].[users] ([username], [email], [password], [role], [salt]) VALUES
@@ -741,6 +735,104 @@ INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VA
 ('3',
 '67'
 );
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('4',
+'1'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('4',
+'2'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('4',
+'3'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('4',
+'4'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('4',
+'5'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('4',
+'6'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('4',
+'7'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('4',
+'8'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('5',
+'9'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('5',
+'18'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('5',
+'19'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('5',
+'28'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('5',
+'29'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('5',
+'38'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('5',
+'39'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('5',
+'48'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('6',
+'49'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('6',
+'58'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('6',
+'59'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('6',
+'68'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('6',
+'69'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('6',
+'70'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('6',
+'71'
+);
+INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VALUES
+('6',
+'72'
+);
+
+
 
 --ABOVE is a JOIN/PIVOT table, assigns competitive entities associated with a particular tournament
 --BELOW creates TOURNAMENT tables, schemes as setup by event organizers.
@@ -748,26 +840,51 @@ INSERT INTO [dbo].[tournament_competitors] ([tournament_id], [competitor_id]) VA
 INSERT INTO [dbo].[tournaments] ([tournament_name], [organizer_id], [start_date], [end_date], [competitor_limit]) VALUES
 ('soccer fight',
 '75',
-'2017-03-20 12:12:12',
-'2017-03-28 12:12:12',
+'2017-03-20 20:00:00',
+'2017-03-28 23:30:00',
 '16'
 );
 
 INSERT INTO [dbo].[tournaments] ([tournament_name], [organizer_id], [start_date], [end_date], [competitor_limit]) VALUES
 ('ostrich racing',
 '75',
-'2017-04-10 12:12:12',
-'2017-04-20 12:12:12',
+'2017-04-10 10:00:00',
+'2017-04-20 14:30:00',
 '16'
 );
 
 INSERT INTO [dbo].[tournaments] ([tournament_name], [organizer_id], [start_date], [end_date], [competitor_limit]) VALUES
 ('dog surfing',
-'75',
-'2017-04-12 12:12:12',
-'2017-05-30 12:12:12',
+'76',
+'2017-04-12 07:00:00',
+'2017-05-30 18:00:00',
 '16'
 );
+
+INSERT INTO [dbo].[tournaments] ([tournament_name], [organizer_id], [start_date], [end_date], [competitor_limit]) VALUES
+('flugtag',
+'75',
+'2017-05-12 12:00:00',
+'2017-05-30 20:00:00',
+'8'
+);
+
+INSERT INTO [dbo].[tournaments] ([tournament_name], [organizer_id], [start_date], [end_date], [competitor_limit]) VALUES
+('BASEketball',
+'76',
+'2017-05-15 08:00:00',
+'2017-06-30 22:00:00',
+'8'
+);
+
+INSERT INTO [dbo].[tournaments] ([tournament_name], [organizer_id], [start_date], [end_date], [competitor_limit]) VALUES
+('dodgeball',
+'76',
+'2017-05-18 12:00:00',
+'2017-06-10 16:00:00',
+'8'
+);
+
 
 --ABOVE creates TOURNAMENT tables, schemes as setup by event organizers.
 --BELOW creates individual MATCHS within the tournament.
@@ -941,22 +1058,71 @@ INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
 '3'
 );
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('62',
-'63',
-'3'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('64',
-'65',
-'3'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
 ('66',
 '67',
 '3'
 );
+
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('60',
-'67',
-'3'
+('1',
+'2',
+'4'
 );
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('3',
+'4',
+'4'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('5',
+'6',
+'4'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('7',
+'8',
+'4'
+);
+
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('9',
+'18',
+'5'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('19',
+'28',
+'5'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('29',
+'38',
+'5'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('39',
+'48',
+'5'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('49',
+'58',
+'6'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('59',
+'68',
+'6'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('69',
+'70',
+'6'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+('71',
+'72',
+'6'
+);
+
+
