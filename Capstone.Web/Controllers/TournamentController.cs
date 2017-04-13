@@ -10,15 +10,13 @@ namespace Capstone.Web.Controllers
 {
     public class TournamentController : Controller
     {
-<<<<<<< HEAD
-=======
+
         private readonly ITournamentDAL tournamentDal;
 
         public TournamentController(ITournamentDAL tournamentDal)
         {
             this.tournamentDal = tournamentDal;
         }
->>>>>>> 8dd9874c774926f1ee1a0363f644828655015107
 
         // GET: Tournament
         public ActionResult Detail()
