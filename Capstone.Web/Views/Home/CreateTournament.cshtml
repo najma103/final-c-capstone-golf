@@ -5,27 +5,65 @@
 
 <h2>CreateTournament</h2>
 
-<div id="create" style="margin: 20px;">
-
-    @using (Html.BeginForm("CreateTournament", "Home", FormMethod.Post))
-    {
-        <div>
-            @Html.Label("Type of Game: \t\t")
-            @Html.TextBoxFor(m => m.GameType, new { placeholder = "i.e Bowling" })
-            @Html.ValidationMessageFor(m => m.GameType)
-        </div>
-        @*<div>@Html.Label("Total Players: ")</div>*@
-        <div>
-            @Html.Label("Total Players: \t\t")
-            @Html.TextBoxFor(m => m.MaxPlayers, new { placeholder = "Max # of Players" })
-            @Html.ValidationMessageFor(m => m.MaxPlayers)
-        </div>
-        <div>
-            @Html.Label("Tournament Start Date: \t\t")
-            @Html.TextBoxFor(m => m.GameStartDate, new { placeholder = "Tournament Start Date" })
-            @Html.ValidationMessageFor(m => m.GameStartDate)
-        </div>
-        <button>Create</button>
-    }
+<div class="container-fluid" style="margin: 20px;">
+    <form class="form-horizontal">
+        @using (Html.BeginForm("CreateTournament", "Home", FormMethod.Post))
+        {
+            <fieldset>
+                <div class="col-sm-2">
+                    @Html.Label("Tournament Name:", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.Name, new { placeholder = "i.e Bowling", @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+            </fieldset>
+            @*<div class="form-group">
+                    <div class="control-label col-sm-6">
+                        <p>Tournament Type: </p>
+                    </div>
+                    <div class="col-sm-6">
+                        @Html.Label("Single-Elimination", new { @class = "control-label col-sm-2" })
+                    </div>
+                </div>*@
+            <fieldset>
+                <div class="col-sm-2">
+                    @Html.Label("Number of Participants:", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(m => m.CompetitorLimit, new { placeholder = "choose even players", @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CompetitorLimit)
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="col-sm-4">
+                    @Html.Label("Start Date:", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.StartDate)
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="col-sm-4">
+                    @Html.Label("End Date:", new { @class = "control-label" })
+                </div>
+                <div class="col-sm-8">
+                    @Html.TextBoxFor(m => m.EndDate, new { @placeholder = "Tournament end date", @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.EndDate)
+                </div>
+            </fieldset>
+            <fieldset>
+                <br />
+                <div>
+                    <button class="btn btn-default">Generate New Bracket</button>
+                </div>
+            </fieldset>
+        }
+    </form>
 </div>
+
+
+
+
 

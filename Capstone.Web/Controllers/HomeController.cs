@@ -10,8 +10,8 @@ namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
+        
         private const string UsernameKey = "Bracket_Username";
-
         private readonly IUserDAL userDal;
 
         public HomeController(IUserDAL userDal)
@@ -19,25 +19,33 @@ namespace Capstone.Web.Controllers
             this.userDal = userDal;
         }
 
-
         // GET: Home
         public ActionResult Index()
         {
-            return RedirectToAction("List", "Tournament");
+            //return RedirectToAction("List", "Tournament");
+            List<Tournament> list = new List<Tournament>();
+            Tournament bracket = new Tournament();
+
+            list = bracket.GetAllTournaments();
+            return View("Index", list);
         }
         public ActionResult CreateTournament(Tournament model)
         {
-            //// If the user has not logged in yet, make them log in
-            //if (Session[SessionKeys.UserId] == null)
-            //{
-            //    return RedirectToAction("Login", "User");
-            //}
+            Tournament t = new Tournament();
+            //if(t.Name != "" && t.CompetitorLimit > 0 && t.CompetitorLimit <=16
+            //    && t.StartDate >= DateTime.UtcNow && t.EndDate > t.StartDate)
+            if(model.CompetitorLimit > 0 && model.CompetitorLimit <= 16)
+            {
+                // add to the database
+                Tournament t2 = new Tournament();
+                int[] arr1 = new int[model.CompetitorLimit];
+                arr1 = t2.GenerataFirstBracket(model.CompetitorLimit);
 
-            //if (ModelState.IsValid)
-            //{
-            //    return View("CreateTournament", model);
-            //}
-            //return View("Index");
+
+                t.Brackets = arr1;
+
+            return View("Brackets", t);
+            }
             return View("CreateTournament", model);
         }
         public bool IsAuthenticated
@@ -62,6 +70,10 @@ namespace Capstone.Web.Controllers
 
                 return username;
             }
+        }
+        public ActionResult Brackets(Tournament model)
+        {
+            return View("Brackets");
         }
     }
 }
