@@ -890,178 +890,329 @@ INSERT INTO [dbo].[tournaments] ([tournament_name], [organizer_id], [start_date]
 --BELOW creates individual MATCHS within the tournament.
 
 
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('10',
-'20',
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('1',
+'2',
+'1',
+'4',
 '1'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('3',
+'4',
+'1',
+'4',
+'2'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('5',
+'6',
+'1',
+'4',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('7',
+'8',
+'1',
+'4',
+'4'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('9',
+'10',
+'1',
+'4',
+'5'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
 ('11',
-'21',
-'1'
+'12',
+'1',
+'4',
+'6'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('12',
-'22',
-'1'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
 ('13',
-'23',
-'1'
+'14',
+'1',
+'4',
+'7'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('14',
-'24',
-'1'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
 ('15',
-'25',
+'16',
+'1',
+'4',
+'8'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('2',
+'4',
+'1',
+'3',
 '1'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('16',
-'26',
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('6',
+'8',
+'1',
+'3',
+'2'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('10',
+'12',
+'1',
+'3',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('14',
+'16',
+'1',
+'3',
+'4'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('4',
+'8',
+'1',
+'2',
 '1'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('12',
+'16',
+'1',
+'2',
+'2'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('4',
+'12',
+'1',
+'1',
+'1'
+);
+
+-- ------------------------------------
+
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
 ('17',
-'27',
+'18',
+'2',
+'4',
 '1'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('20',
-'21',
-'1'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('22',
-'23',
-'1'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('24',
-'25',
-'1'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('26',
-'27',
-'1'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('20',
-'27',
-'1'
-);
-
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('30',
-'40',
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('19',
+'20',
+'2',
+'4',
 '2'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('21',
+'22',
+'2',
+'4',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('23',
+'24',
+'2',
+'4',
+'4'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('25',
+'26',
+'2',
+'4',
+'5'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('27',
+'28',
+'2',
+'4',
+'6'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('29',
+'30',
+'2',
+'4',
+'7'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
 ('31',
-'41',
+'32',
+'2',
+'4',
+'8'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('17',
+'19',
+'2',
+'3',
+'1'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('21',
+'23',
+'2',
+'3',
 '2'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('32',
-'42',
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('25',
+'27',
+'2',
+'3',
+'3'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('29',
+'31',
+'2',
+'3',
+'4'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('17',
+'21',
+'2',
+'2',
+'1'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('25',
+'29',
+'2',
+'2',
 '2'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('33',
-'43',
-'2'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('34',
-'44',
-'2'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('35',
-'45',
-'2'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('36',
-'46',
-'2'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('37',
-'47',
-'2'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('40',
-'41',
-'2'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('42',
-'43',
-'2'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('44',
-'45',
-'2'
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('17',
+'25',
+'2',
+'1',
+'1'
 );
 
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('50',
-'60',
+-- ------------------------------------
+
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('1',
+'2',
+'1',
+'4',
+'1'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('3',
+'4',
+'1',
+'4',
+'2'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('5',
+'6',
+'1',
+'4',
 '3'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('51',
-'61',
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('7',
+'8',
+'1',
+'4',
+'4'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('9',
+'10',
+'1',
+'4',
+'5'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('11',
+'12',
+'1',
+'4',
+'6'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('13',
+'14',
+'1',
+'4',
+'7'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('15',
+'16',
+'1',
+'4',
+'8'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('2',
+'4',
+'1',
+'3',
+'1'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('6',
+'8',
+'1',
+'3',
+'2'
+);
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('10',
+'12',
+'1',
+'3',
 '3'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('52',
-'62',
-'3'
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('14',
+'16',
+'1',
+'3',
+'4'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('53',
-'63',
-'3'
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('4',
+'8',
+'1',
+'2',
+'1'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('54',
-'64',
-'3'
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('12',
+'16',
+'1',
+'2',
+'2'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('55',
-'65',
-'3'
+INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
+('4',
+'12',
+'1',
+'1',
+'1'
 );
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('56',
-'66',
-'3'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('57',
-'67',
-'3'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('60',
-'61',
-'3'
-);
-INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
-('66',
-'67',
-'3'
-);
+
+-- ------------------------------------------------
 
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id]) VALUES
 ('1',
