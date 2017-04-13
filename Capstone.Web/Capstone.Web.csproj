@@ -142,6 +142,7 @@
     <Compile Include="Crypto\HashProvider.cs" />
     <Compile Include="DAL\ITournamentDAL.cs" />
     <Compile Include="DAL\IUserDAL.cs" />
+    <Compile Include="DAL\MatchSqlDal.cs" />
     <Compile Include="DAL\TournamentSqlDal.cs" />
     <Compile Include="DAL\UserSqlDal.cs" />
     <Compile Include="Global.asax.cs">
