@@ -1,3 +1,4 @@
+
 DROP TABLE matches;
 DROP TABLE tournament_competitors;
 DROP TABLE tournaments;
@@ -11,9 +12,11 @@ CREATE TABLE users (
 	password varchar(30) not null,
 	role varchar(10) not null,
 	salt varchar(3) not null,
+	name varchar(50),
 
 	CONSTRAINT pk_user_id primary key (user_id),
 );
+
 
 CREATE TABLE tournaments (
 	tournament_id int identity not null,
@@ -25,13 +28,16 @@ CREATE TABLE tournaments (
 	
 
 	CONSTRAINT pk_tournament_id primary key (tournament_id),
-	CONSTRAINT fk_tournaments_organizer_id FOREIGN KEY (organizer_id) REFERENCES users(user_id)
+	CONSTRAINT fk_tournaments_organizer_id FOREIGN KEY (organizer_id) REFERENCES users(user_id),
+
 	
 );
 
 CREATE TABLE tournament_competitors(
 	tournament_id int not null,
 	competitor_id int not null,
+	wins int,
+	losses int,
 	
 	CONSTRAINT fk_tournament_competitors_tournament_id FOREIGN KEY (tournament_id) REFERENCES tournaments(tournament_id),
 	CONSTRAINT fk_tournament_competitors_competitor_id FOREIGN KEY (competitor_id) REFERENCES users(user_id),
@@ -39,9 +45,11 @@ CREATE TABLE tournament_competitors(
 
 CREATE TABLE matches (
 	match_id int identity not null,
-	user1_id int not null,
-	user2_id int not null,
+	user1_id int,
+	user2_id int,
 	tournament_id int not null,
+	tier int not null,
+	position int not null,
 
 	
 	CONSTRAINT pk_match_id primary key (match_id),

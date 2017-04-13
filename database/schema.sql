@@ -64,6 +64,8 @@ CREATE TABLE tournaments (
 CREATE TABLE tournament_competitors(
 	tournament_id int not null,
 	competitor_id int not null,
+	wins int not null,
+	losses int not null,
 	
 	CONSTRAINT fk_tournament_competitors_tournament_id FOREIGN KEY (tournament_id) REFERENCES tournaments(tournament_id),
 	CONSTRAINT fk_tournament_competitors_competitor_id FOREIGN KEY (competitor_id) REFERENCES users(user_id),
@@ -72,6 +74,7 @@ CREATE TABLE tournament_competitors(
 CREATE TABLE matches (
 	match_id int identity not null,
 	tournament_id int not null,
+	bracket_tier int not null,
 
 	
 	CONSTRAINT pk_match_id primary key (match_id),

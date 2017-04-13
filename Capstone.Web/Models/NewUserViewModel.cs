@@ -14,7 +14,6 @@ namespace Capstone.Web.Models
 
         [Required(ErrorMessage = "This field is required")]
         [Display(Name = "Password:")]
-        [RegularExpression("^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "This field is required")]
@@ -23,8 +22,8 @@ namespace Capstone.Web.Models
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "This field is required")]
-        [EmailAddress(ErrorMessage ="Please enter a valid e-mail address")]
-        [Display(Name ="Email Address")]
+        [Display(Name = "Email Address:")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address")]
         public string EmailAddress { get; set; }
     }
 }
