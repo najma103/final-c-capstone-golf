@@ -32,8 +32,8 @@ namespace Capstone.Web.DAL
                     {
                         Tournament t = new Tournament();
 
-                        t.Id = Convert.ToInt32(reader["tournament_id"]);
-                        t.Name = Convert.ToString(reader["tournament_name"]);
+                        t.TournamentId = Convert.ToInt32(reader["tournament_id"]);
+                        t.TournamentName = Convert.ToString(reader["tournament_name"]);
                         t.OrganizerId = Convert.ToInt32(reader["organizer_id"]);
                         t.StartDate = Convert.ToDateTime(reader["start_date"]);
                         t.EndDate = Convert.ToDateTime(reader["end_date"]);
@@ -67,8 +67,8 @@ namespace Capstone.Web.DAL
                     {
                         Tournament t = new Tournament();
 
-                        t.Id = Convert.ToInt32(reader["tournament_id"]);
-                        t.Name = Convert.ToString(reader["tournament_name"]);
+                        t.TournamentId = Convert.ToInt32(reader["tournament_id"]);
+                        t.TournamentName = Convert.ToString(reader["tournament_name"]);
                         t.OrganizerId = Convert.ToInt32(reader["organizer_id"]);
                         t.StartDate = Convert.ToDateTime(reader["start_date"]);
                         t.EndDate = Convert.ToDateTime(reader["end_date"]);

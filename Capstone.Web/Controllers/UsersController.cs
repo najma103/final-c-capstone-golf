@@ -63,7 +63,7 @@ namespace Capstone.Web.Controllers
 
                 var newUser = new User
                 {
-                    Username = model.Username,
+                    Email = model.EmailAddress,
                     Password = hashedPassword,
                     //Salt = salt
                 };

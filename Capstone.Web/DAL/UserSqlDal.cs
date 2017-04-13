@@ -5,6 +5,7 @@ using System.Web;
 using Capstone.Web.Models;
 using System.Data.SqlClient;
 
+
 namespace Capstone.Web.DAL
 {
     public class UserSqlDal : IUserDAL
