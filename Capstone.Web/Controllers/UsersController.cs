@@ -81,10 +81,20 @@ namespace Capstone.Web.Controllers
             return View("Register", model);
         }
         
+        [HttpGet]
         public ActionResult Login()
         {
             var model = new LoginViewModel();
             return View("Login", model);
+        }
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+
+            model.Email = Request.Params["Email"];
+            //Session[UsernameKey] = Request.Params["Email"];
+            return View("Login", model);
+
         }
     }
 }

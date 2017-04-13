@@ -21,7 +21,7 @@ namespace Capstone.Web.DAL
         {
             try
             {
-                string sql = $"INSERT INTO users VALUES (@displayname, @email, @password, @role, @salt, @);";
+                string sql = $"INSERT INTO users VALUES (@displayname, @email, @password, @role, @salt);";
 
                 using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
