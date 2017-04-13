@@ -43,13 +43,13 @@ namespace Capstone.Web.Models
         public int[] GenerataFirstBracket(int totalPlayers)
         {
             int[] array = new int[totalPlayers];
-            double rounds = Math.Log(totalPlayers) / Math.Log(2) - 1;
+            
             //assign initial numbers to the array
             int[] playerArray = new int[totalPlayers];
             int[] arr1 = new int[totalPlayers / 2];
             int[] arr2 = new int[totalPlayers / 2];
 
-            int half = totalPlayers / 2;
+            int half = (totalPlayers / 2);
 
             for (int i = 0; i < totalPlayers; i++)
             {
@@ -57,7 +57,7 @@ namespace Capstone.Web.Models
             }
             for(int i = 0; i < half; i++)
             {
-                arr1[i] = playerArray[half - i];
+                arr1[i] = playerArray[half - 1-i];
                 arr2[i] = playerArray[totalPlayers - 1 - i];
             }
             array = arr1.Concat(arr2).ToArray();
