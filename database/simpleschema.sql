@@ -7,12 +7,11 @@ DROP TABLE users;
 
 CREATE TABLE users (
 	user_id int identity not null,
-	username varchar(15) not null,
+	displayname varchar(50) not null,
 	email varchar(50) not null,
 	password varchar(30) not null,
 	role varchar(10) not null,
 	salt varchar(3) not null,
-	name varchar(50),
 
 	CONSTRAINT pk_user_id primary key (user_id),
 );
@@ -23,7 +22,7 @@ CREATE TABLE tournaments (
 	tournament_name varchar(50) not null,
 	organizer_id int not null,
 	start_date datetime not null,
-	end_date datetime,
+	end_date datetime not null,
 	competitor_limit int not null,
 	
 
