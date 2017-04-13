@@ -16,7 +16,7 @@ namespace Capstone.Web.Models
 
         [Required(ErrorMessage = "A display name is required")]
         [Display(Name = "Display Name:")]
-        public string Username { get; set; }
+        public string DisplayName { get; set; }
 
         [Required(ErrorMessage = "This field is required")]
         [Display(Name = "Password:")]

@@ -1,7 +1,9 @@
-﻿@model Capstone.Web.Models.Tournament
+﻿
 @{
     ViewBag.Title = "CreateTournamentForm";
 }
+
+@model Tournament
 
 <h2>CreateTournament</h2>
 
@@ -12,8 +14,8 @@
 
         <div>
             @Html.Label("Tournament Name: \t\t")
-            @Html.TextBoxFor(m => m.Name, new { placeholder = "Tournament Name" })
-            @Html.ValidationMessageFor(m => m.Name)
+            @Html.TextBoxFor(m => m.TournamentName, new { placeholder = "Tournament Name" })
+            @Html.ValidationMessageFor(m => m.TournamentName)
         </div>
         <div>
             @Html.Label("Amount of Players: \t\t")
