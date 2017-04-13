@@ -13,24 +13,32 @@ namespace Capstone.Web.Controllers
         
         private const string UsernameKey = "Bracket_Username";
         private readonly IUserDAL userDal;
+        private readonly ITournamentDAL tournamentDal;
 
-        public HomeController(IUserDAL userDal)
+        public HomeController(IUserDAL userDal, ITournamentDAL tournamentDal)
         {
             this.userDal = userDal;
+            this.tournamentDal = tournamentDal;
         }
 
         // GET: Home
         public ActionResult Index()
         {
+<<<<<<< HEAD
             //return RedirectToAction("List", "Tournament");
             List<Tournament> list = new List<Tournament>();
             Tournament bracket = new Tournament();
 
             list = bracket.GetAllTournaments();
             return View("Index", list);
+=======
+            List<Tournament> model = tournamentDal.getAllTournaments();
+            return View(model);
+>>>>>>> 8dd9874c774926f1ee1a0363f644828655015107
         }
-        public ActionResult CreateTournament(Tournament model)
+        public ActionResult CreateTournamentForm()
         {
+<<<<<<< HEAD
             Tournament t = new Tournament();
             //if(t.Name != "" && t.CompetitorLimit > 0 && t.CompetitorLimit <=16
             //    && t.StartDate >= DateTime.UtcNow && t.EndDate > t.StartDate)
@@ -47,7 +55,36 @@ namespace Capstone.Web.Controllers
             return View("Brackets", t);
             }
             return View("CreateTournament", model);
+=======
+
+	    Tournament model = new Tournament();
+            
+	    //If the user has not logged in yet, make them log in
+            if (Session[SessionKeys.UserId] == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+            if (ModelState.IsValid)
+            {
+                return View("CreateTournamentForm","Tournament", model);
+            }
+
+            return RedirectToAction("Index", "Home", null);
+
+>>>>>>> 8dd9874c774926f1ee1a0363f644828655015107
         }
+	
+	/// <summary>
+        /// "Logs" the current user in
+        /// </summary>
+        public void LogUserIn(string username)
+        {
+            //Session.Abandon();
+            //Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+            Session[UsernameKey] = username;
+        }
+
         public bool IsAuthenticated
         {
             get

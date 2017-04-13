@@ -3,13 +3,17 @@ using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+<<<<<<< HEAD
 using System.ComponentModel.DataAnnotations;
 using Capstone.Web.DAL;
+=======
+>>>>>>> 8dd9874c774926f1ee1a0363f644828655015107
 
 namespace Capstone.Web.Models
 {
     public class Tournament 
     {
+<<<<<<< HEAD
         private readonly string connectionString = @"Data Source=desktop-58f8ch1\sqlexpress;Initial Catalog=Capstone;Integrated Security=True";
         private ITournamentDAL tournamentDal;
         public  List<Tournament> GetAllTournaments()
@@ -17,21 +21,24 @@ namespace Capstone.Web.Models
             tournamentDal = new TournamentSqlDal(connectionString);
             return tournamentDal.getAllTournaments();
         }
+=======
+        public int TournamentId { get; set; }
+>>>>>>> 8dd9874c774926f1ee1a0363f644828655015107
 
-        [Required(ErrorMessage = "This field is required")]
-        public int Id { get; set; }
-        [Required(ErrorMessage = "This is a required field")]
-        public string Name { get; set; }
+        public List<User> UserList { get; set; }
+
+        public string TournamentName { get; set; }
 
         public int OrganizerId { get; set; }
 
-        [Required(ErrorMessage = "Start date is required")]
         public DateTime StartDate { get; set; }
 
+<<<<<<< HEAD
         [Required(ErrorMessage = "End date is required")]
+=======
+>>>>>>> 8dd9874c774926f1ee1a0363f644828655015107
         public DateTime EndDate { get; set; }
 
-        [Required(ErrorMessage = "This field is required")]
         public int CompetitorLimit { get; set; }
 
          int[] brackets;

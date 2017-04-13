@@ -109,8 +109,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images\bowling.jpg" />
-    <Content Include="Content\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -139,16 +137,22 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TournamentController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Crypto\HashProvider.cs" />
+    <Compile Include="DAL\ITournamentDAL.cs" />
+    <Compile Include="DAL\IUserDAL.cs" />
+    <Compile Include="DAL\TournamentSqlDal.cs" />
+    <Compile Include="DAL\UserSqlDal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Models\Match.cs" />
-    <Compile Include="Models\Tournament.cs" />
-    <Compile Include="Models\User.cs" />
-=======
-    <Compile Include="Models\TournamentModel.cs" />
->>>>>>> a623152aebe4852a72fecbc301ec1017d874433b
+    <Compile Include="Models\Data\Tournament.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\Data\Match.cs" />
+    <Compile Include="Models\NewUserViewModel.cs" />
+    <Compile Include="Models\NewTournamentViewModel.cs" />
+    <Compile Include="Models\Data\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionKeys.cs" />
   </ItemGroup>
@@ -158,13 +162,17 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\Home\RegisterNewUser.cshtml" />
-=======
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\CreateTournament.cshtml" />
->>>>>>> a623152aebe4852a72fecbc301ec1017d874433b
+    <Content Include="Views\Users\Register.cshtml" />
+=======
+    <Content Include="Views\Tournament\CreateTournamentForm.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+>>>>>>> 9b00ce454b170f59666d7a78d773698ed795eccb
+    <Content Include="Views\Tournament\Detail.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

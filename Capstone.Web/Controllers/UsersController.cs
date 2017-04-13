@@ -7,6 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using Capstone.Web.Models;
 using Capstone.Web.DAL;
+using Capstone.Web.Crypto;
 
 namespace Capstone.Web.Controllers
 {
@@ -14,11 +15,13 @@ namespace Capstone.Web.Controllers
     {
         private readonly IUserDAL userDal;
 
-
-        public UsersController(IUserDAL userDal)
-            : base(userDal)
+        private readonly ITournamentDAL tour;
+        
+        public UsersController(IUserDAL userDal, ITournamentDAL tour)
+            : base(userDal, tour)
         {
             this.userDal = userDal;
+            this.tour = tour;
         }
 
         [HttpGet]
@@ -32,7 +35,6 @@ namespace Capstone.Web.Controllers
             else
             {
                 var model = new NewUserViewModel();
-
                 return View("Register", model);
             }
         }
@@ -54,8 +56,32 @@ namespace Capstone.Web.Controllers
                 {
                     return View("Register", model);
                 }
+                HashProvider hashProvider = new HashProvider();
+                string hashedPassword = hashProvider.HashPassword(model.Password); //<-- password they provided during registration
+                string salt = hashProvider.SaltValue;
+
+
+                var newUser = new User
+                {
+                    Email = model.EmailAddress,
+                    Password = hashedPassword,
+                    //Salt = salt
+                };
+
+                // Add the user to the database
+                userDal.CreateUser(newUser);
+
+                // Log the user in and redirect to the dashboard
+                base.LogUserIn(model.Username);
+                return RedirectToAction("Index", "Home", new { username = model.Username });
             }
             return View("Register", model);
+        }
+        
+        public ActionResult Login()
+        {
+            var model = new LoginViewModel();
+            return View("Login", model);
         }
     }
 }

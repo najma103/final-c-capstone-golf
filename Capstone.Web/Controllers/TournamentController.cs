@@ -10,11 +10,43 @@ namespace Capstone.Web.Controllers
 {
     public class TournamentController : Controller
     {
+<<<<<<< HEAD
+=======
+        private readonly ITournamentDAL tournamentDal;
+
+        public TournamentController(ITournamentDAL tournamentDal)
+        {
+            this.tournamentDal = tournamentDal;
+        }
+>>>>>>> 8dd9874c774926f1ee1a0363f644828655015107
 
         // GET: Tournament
-        public ActionResult Detail(int tournamentId)
+        public ActionResult Detail()
         {
-            return View();
+            int tournamentId = Convert.ToInt32(Request.Params["id"]);
+            Tournament model = tournamentDal.getATournament(tournamentId);
+
+            return View(model);
         }
+        public ActionResult CreateTournament(Tournament model)
+        {
+            // If the user has not logged in yet, make them log in
+            if (Session[SessionKeys.UserId] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (ModelState.IsValid)
+            {
+                return View("CreateTournament", model);
+            }
+            return View("Index");
+        }
+
+        /*public ActionResult JoinTournament()
+        {
+            int userid = (int)Session["currentUser"];
+            int tournamentId = Convert.ToInt32(Request.Params["tournamentId"]);
+        }*/
     }
 }

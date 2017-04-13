@@ -5,7 +5,7 @@
 
 @using Capstone.Web.Models;
 
-@model List<Tournament>
+@model Tournament
 
 <div class="container">
     <div class="row">
@@ -33,6 +33,7 @@
 
 @using (Html.BeginForm("JoinTournament", "Tournament", FormMethod.Post))
 {
-        <button>Join This Tournament!</button>
+        @Html.Hidden("tournamentId", Model.Id);
+        <button type="submit" value="Join This Tournament!"></button>
 }
 
