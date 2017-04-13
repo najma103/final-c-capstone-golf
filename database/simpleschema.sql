@@ -1,3 +1,10 @@
+
+DROP TABLE matches;
+DROP TABLE tournament_competitors;
+DROP TABLE tournaments;
+DROP TABLE users;
+
+
 CREATE TABLE users (
 	user_id int identity not null,
 	username varchar(15) not null,
@@ -22,6 +29,7 @@ CREATE TABLE tournaments (
 
 	CONSTRAINT pk_tournament_id primary key (tournament_id),
 	CONSTRAINT fk_tournaments_organizer_id FOREIGN KEY (organizer_id) REFERENCES users(user_id),
+
 	
 );
 
