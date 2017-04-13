@@ -1322,7 +1322,7 @@ INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [p
 --'5',
 --'1',
 --'1'
-);
+-- );
 
 -- ---------------------------------------------
 INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [position]) VALUES
@@ -1373,7 +1373,7 @@ INSERT INTO [dbo].[matches] ([user1_id], [user2_id], [tournament_id], [tier], [p
 --'6',
 --'1',
 --'1'
-);
+-- );
 
 -- ---------------------------------------
 
