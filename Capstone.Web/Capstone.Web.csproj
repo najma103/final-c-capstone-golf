@@ -164,7 +164,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\CreateTournament.cshtml" />
+    <Content Include="Views\Tournament\CreateTournamentForm.cshtml" />
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Tournament\Detail.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />

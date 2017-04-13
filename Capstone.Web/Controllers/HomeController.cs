@@ -28,8 +28,24 @@ namespace Capstone.Web.Controllers
             List<Tournament> model = tournamentDal.getAllTournaments();
             return View(model);
         }
+        public ActionResult CreateTournament()
+        {
 
-        /// <summary>
+	    Tournament model = new Tournament();
+            
+	    //If the user has not logged in yet, make them log in
+            if (Session[SessionKeys.UserId] == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+            if (ModelState.IsValid)
+            {
+                return View("CreateTournamentForm","Tournament", model);
+            }
+        }
+	
+	/// <summary>
         /// "Logs" the current user in
         /// </summary>
         public void LogUserIn(string username)
