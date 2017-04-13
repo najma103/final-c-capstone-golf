@@ -20,13 +20,13 @@ namespace Capstone.Web.DAL
         {
             try
             {
-                string sql = $"INSERT INTO users VALUES (@username, @password, @email);";
+                string sql = $"INSERT INTO users VALUES (@displayname, @password, @email);";
 
                 using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@username", newUser.Username);
+                    cmd.Parameters.AddWithValue("@displayname", newUser.DisplayName);
                     cmd.Parameters.AddWithValue("@password", newUser.Password);
                     cmd.Parameters.AddWithValue("@email", newUser.Email);
 
@@ -42,11 +42,11 @@ namespace Capstone.Web.DAL
             }
         }
 
-        public bool ChangePassword(string username, string newPassword)
+        public bool ChangePassword(string email, string newPassword)
         {
             try
             {
-                string sql = $"UPDATE users SET password = '{newPassword}' WHERE username = '{username}'";
+                string sql = $"UPDATE users SET password = '{newPassword}' WHERE email = '{email}'";
 
                 using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
@@ -65,13 +65,13 @@ namespace Capstone.Web.DAL
             }
         }
 
-        public User GetUser(string username)
+        public User GetUser(string email)
         {
             User user = null;
 
             try
             {
-                string sql = $"SELECT TOP 1 * FROM users WHERE username = '{username}'";
+                string sql = $"SELECT TOP 1 * FROM users WHERE email = '{email}'";
 
                 using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
@@ -84,7 +84,7 @@ namespace Capstone.Web.DAL
                     {
                         user = new User
                         {
-                            Username = Convert.ToString(reader["username"]),
+                            DisplayName = Convert.ToString(reader["displayname"]),
                             Password = Convert.ToString(reader["password"]),
                             Email = Convert.ToString(reader["email"])
                         };

@@ -62,8 +62,7 @@ namespace Capstone.Web.DAL
                     SqlCommand cmd = new SqlCommand(getATournamentSql, conn);
                     cmd.Parameters.AddWithValue("@tournament_id", tournament_id);
 
-                    SqlCommand command = new SqlCommand(getATournamentSql, conn);
-                    SqlDataReader reader = command.ExecuteReader();
+                    SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
                         Tournament t = new Tournament();

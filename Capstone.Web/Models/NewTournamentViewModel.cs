@@ -6,14 +6,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Capstone.Web.Models
 {
-    public class Tournament
+    public class NewTournamentViewModel
     {
-        public List<User> TournamentList { get; set; }
-
-        [Required(ErrorMessage = "This field is required")]
+        
         public int Id { get; set; }
         [Required(ErrorMessage = "This is a required field")]
-        public string Name { get; set; }
+        public string TournamentName { get; set; }
 
         public int OrganizerId { get; set; }
 

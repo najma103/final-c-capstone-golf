@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Security.Cryptography;
 
-namespace Critter.Web.Crypto
+namespace Capstone.Web.Crypto
 {
     public class HashProvider
     {

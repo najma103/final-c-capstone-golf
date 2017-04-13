@@ -47,7 +47,7 @@
                 {
                 <tr>
                     <td style='white-space: normal;'>
-                        <a href="#">@Tournament.Name</a>
+                        @Html.ActionLink(Tournament.Name,"Detail","Tournament", new { id = Tournament.Id }, null)
                     </td>
                     <td style='white-space: normal;'>
                         &ndash;

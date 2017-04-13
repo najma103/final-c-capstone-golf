@@ -13,33 +13,32 @@ namespace Capstone.Web.Controllers
         private const string UsernameKey = "Bracket_Username";
 
         private readonly IUserDAL userDal;
+        private readonly ITournamentDAL tournamentDal;
 
-        public HomeController(IUserDAL userDal)
+        public HomeController(IUserDAL userDal, ITournamentDAL tournamentDal)
         {
             this.userDal = userDal;
+            this.tournamentDal = tournamentDal;
         }
 
 
         // GET: Home
         public ActionResult Index()
         {
-            return RedirectToAction("List", "Tournament");
+            List<Tournament> model = tournamentDal.getAllTournaments();
+            return View(model);
         }
-        public ActionResult CreateTournament(Tournament model)
-        {
-            //// If the user has not logged in yet, make them log in
-            //if (Session[SessionKeys.UserId] == null)
-            //{
-            //    return RedirectToAction("Login", "User");
-            //}
 
-            //if (ModelState.IsValid)
-            //{
-            //    return View("CreateTournament", model);
-            //}
-            //return View("Index");
-            return View("CreateTournament", model);
+        /// <summary>
+        /// "Logs" the current user in
+        /// </summary>
+        public void LogUserIn(string username)
+        {
+            //Session.Abandon();
+            //Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+            Session[UsernameKey] = username;
         }
+
         public bool IsAuthenticated
         {
             get

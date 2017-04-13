@@ -1,9 +1,11 @@
-﻿@{
+﻿@using Capstone.Web.Models;
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model Capstone.Web.Models.NewUserViewModel
+@model NewUserViewModel
 
-@using (Html.BeginForm("NewUser", "Users", FormMethod.Post))
+@using (Html.BeginForm("RegisterNewUser", "Users", FormMethod.Post))
 {
     <div class="row">
         <div class="col-sm-4"></div>
@@ -25,10 +27,15 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.EmailAddress)
-                @Html.PasswordFor(m => m.EmailAddress, new { placeHolder = "Email Address", @class = "form-control" })
+                @Html.TextBoxFor(m => m.EmailAddress, new { placeHolder = "Email Address", @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.EmailAddress)
             </div>
-            <button type="submit" class="btn btn-default">Create User</button>
+            <div class="form-group">
+                @Html.Label("accounttype", "Account Type")
+                @Html.DropDownList("accounttype",NewUserViewModel.AccountType)
+                @Html.ValidationMessageFor(m => m.SelectedAccountType)
+            </div>
+            <button type="submit" class="btn btn-default">Register</button>
         </div>
         <div class="col-sm-4"></div>
     </div>

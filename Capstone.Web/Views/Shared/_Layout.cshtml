@@ -31,16 +31,18 @@
     </header>
     <nav>
         <ul id="menu">
-            <li><a href="#">Home</a></li>
+            <li>@Html.ActionLink("Home","Index","Home")</li>
             <li>@Html.ActionLink("Tournaments", "Index", "Home")</li>
-            <li>@Html.ActionLink("Create Tournament", "CreateTournament", "Home")</li>
+            <li>@Html.ActionLink("Create Tournament", "CreateTournament", "Tournament")</li>
+            <li>@Html.ActionLink("Login", "Login", "Users")</li>
+            <li>@Html.ActionLink("Register", "RegisterNewUser", "Users")</li>
         </ul>
     </nav>
 
     <main>
         @RenderBody()
     </main>
-    <footer >
+    <footer>
         <p class="text-center">Team Golf &copy; @DateTime.Now.Year</p>
     </footer>
 </body>
