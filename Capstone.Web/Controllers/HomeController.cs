@@ -25,20 +25,10 @@ namespace Capstone.Web.Controllers
         {
             return RedirectToAction("List", "Tournament");
         }
-        public ActionResult CreateTournament(Tournament model)
+        public ActionResult CreateTournamentForm()
         {
-            //// If the user has not logged in yet, make them log in
-            //if (Session[SessionKeys.UserId] == null)
-            //{
-            //    return RedirectToAction("Login", "User");
-            //}
-
-            //if (ModelState.IsValid)
-            //{
-            //    return View("CreateTournament", model);
-            //}
-            //return View("Index");
-            return View("CreateTournament", model);
+            Tournament model = new Tournament();
+            return View("CreateTournamentForm","Tournament", model);
         }
         public bool IsAuthenticated
         {
