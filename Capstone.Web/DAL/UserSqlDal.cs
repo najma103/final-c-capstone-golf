@@ -88,7 +88,8 @@ namespace Capstone.Web.DAL
                         {
                             DisplayName = Convert.ToString(reader["displayname"]),
                             Password = Convert.ToString(reader["password"]),
-                            Email = Convert.ToString(reader["email"])
+                            Email = Convert.ToString(reader["email"]),
+                            Role = Convert.ToString(reader["role"])
                         };
                     }
 

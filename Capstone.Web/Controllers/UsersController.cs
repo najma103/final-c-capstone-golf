@@ -75,8 +75,8 @@ namespace Capstone.Web.Controllers
                 userDal.CreateUser(newUser);
 
                 // Log the user in and redirect to the dashboard
-                base.LogUserIn(model.DisplayName);
-                return RedirectToAction("Index", "Home", new { username = model.DisplayName });
+                base.LogUserIn(model.EmailAddress, model.SelectedAccountType, model.DisplayName);
+                return RedirectToAction("Index", "Home", new { email = model.EmailAddress });
             }
             return View("Register", model);
         }
@@ -92,7 +92,7 @@ namespace Capstone.Web.Controllers
         {
             var user = userDal.GetUser(model.Email);
 
-            base.LogUserIn(user.Email);
+            base.LogUserIn(user.Email, user.Role, user.DisplayName);
 
             model.Email = Request.Params["Email"];
 
@@ -103,6 +103,14 @@ namespace Capstone.Web.Controllers
             
             return View("Login", model);
 
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+
+            return RedirectToAction("Index","Home",null);
         }
     }
 }

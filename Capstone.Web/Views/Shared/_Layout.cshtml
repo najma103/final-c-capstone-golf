@@ -2,7 +2,6 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -14,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
     <link href="~/Content/style.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+
     <script src="https://use.fontawesome.com/b6042e8b1f.js"></script>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/additional-methods.min.js"></script>
@@ -33,9 +34,20 @@
         <ul id="menu">
             <li>@Html.ActionLink("Home","Index","Home")</li>
             <li>@Html.ActionLink("Tournaments", "Index", "Home")</li>
-            <li>@Html.ActionLink("Create Tournament", "CreateTournament", "Tournament")</li>
-            <li>@Html.ActionLink("Login", "Login", "Users")</li>
-            <li>@Html.ActionLink("Register", "RegisterNewUser", "Users")</li>
+            @if ((string)Session[SessionKeys.AccountType] == "organizer")
+            {
+                <li>@Html.ActionLink("Create Tournament", "CreateTournament", "Tournament")</li>
+            }
+            @if (Session[SessionKeys.UsernameKey] == null)
+            {
+                <li class="navbar-right-side">@Html.ActionLink("Register", "RegisterNewUser", "Users")</li>
+                <li class="navbar-right-side">@Html.ActionLink("Login", "Login", "Users")</li>
+            }
+            @if (Session[SessionKeys.UsernameKey] != null)
+            {
+                <li class="navbar-right-side">@Html.ActionLink("Logout", "Logout", "Users")</li>
+                <li id="display-name" class="navbar-right-side">Welcome, @Session[SessionKeys.DisplayName]</li>
+            }
         </ul>
     </nav>
 
