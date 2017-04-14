@@ -18,6 +18,7 @@ namespace Capstone.Web.Controllers
             this.tournamentDal = tournamentDal;
         }
 
+
         // GET: Tournament
         public ActionResult Detail()
         {
@@ -29,16 +30,16 @@ namespace Capstone.Web.Controllers
         public ActionResult CreateTournament(Tournament model)
         {
             // If the user has not logged in yet, make them log in
-            if (Session[SessionKeys.UserId] == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            //if (Session[SessionKeys.UserId] == null)
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
 
-            if (ModelState.IsValid)
-            {
-                return View("CreateTournament", model);
-            }
-            return View("Index");
+            //if (ModelState.IsValid)
+            //{
+            return View("CreateTournamentForm", model);
+            //}
+            //return View("Index");
         }
 
         /*public ActionResult JoinTournament()

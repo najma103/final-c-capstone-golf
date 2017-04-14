@@ -10,7 +10,6 @@ namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
-        
         private const string UsernameKey = "Bracket_Username";
         private readonly IUserDAL userDal;
         private readonly ITournamentDAL tournamentDal;
@@ -34,19 +33,19 @@ namespace Capstone.Web.Controllers
             //    && t.StartDate >= DateTime.UtcNow && t.EndDate > t.StartDate)
 
 	    Tournament model = new Tournament();
-            
-	    //If the user has not logged in yet, make them log in
-            if (Session[SessionKeys.UserId] == null)
-            {
-                return RedirectToAction("Login", "User");
-            }
 
-            if (ModelState.IsValid)
-            {
-                return View("CreateTournamentForm","Tournament", model);
-            }
+            //If the user has not logged in yet, make them log in
+            //if (Session[SessionKeys.UserId] == null)
+            //{
+            //    return RedirectToAction("Login", "User");
+            //}
 
-            return RedirectToAction("Index", "Home", null);
+            //if (ModelState.IsValid)
+            //{
+            return View("CreateTournamentForm", "Tournament", model);
+            //}
+
+            //return RedirectToAction("Index", "Home", null);
         }
 	
 	/// <summary>

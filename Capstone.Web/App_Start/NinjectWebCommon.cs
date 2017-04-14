@@ -10,8 +10,8 @@ namespace Capstone.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using System.Configuration;
     using Capstone.Web.DAL;
+    using System.Configuration;
 
     public static class NinjectWebCommon 
     {
