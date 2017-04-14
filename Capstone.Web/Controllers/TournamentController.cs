@@ -19,6 +19,7 @@ namespace Capstone.Web.Controllers
             this.tournamentDal = tournamentDal;
         }
 
+
         // GET: Tournament
         public ActionResult Detail()
         {

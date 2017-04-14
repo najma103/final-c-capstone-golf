@@ -11,7 +11,7 @@ namespace Capstone.Web.Models
 {
     public class Tournament 
     {
-        private readonly string connectionString = @"Data Source=desktop-58f8ch1\sqlexpress;Initial Catalog=Capstone;Integrated Security=True";
+        private readonly string connectionString = @"Data Source=DESKTOP-58F8CH1\SQLEXPRESS;Initial Catalog=CapstoneDB;Integrated Security=True";
         private ITournamentDAL tournamentDal;
         public  List<Tournament> GetAllTournaments()
         {
