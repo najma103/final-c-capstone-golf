@@ -50,7 +50,7 @@ namespace Capstone.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                var currentUser = userDal.GetUser(model.Username);
+                var currentUser = userDal.GetUser(model.DisplayName);
 
                 if (currentUser != null)
                 {
@@ -63,8 +63,11 @@ namespace Capstone.Web.Controllers
 
                 var newUser = new User
                 {
-                    Email = model.EmailAddress,
-                    Password = hashedPassword,
+                    Email = Request.Params["EmailAddress"],
+                    Password = Request.Params["Password"],
+                    Role = Request.Params["accounttype"],
+                    DisplayName = Request.Params["DisplayName"]
+
                     //Salt = salt
                 };
 
@@ -72,16 +75,34 @@ namespace Capstone.Web.Controllers
                 userDal.CreateUser(newUser);
 
                 // Log the user in and redirect to the dashboard
-                base.LogUserIn(model.Username);
-                return RedirectToAction("Index", "Home", new { username = model.Username });
+                base.LogUserIn(model.DisplayName);
+                return RedirectToAction("Index", "Home", new { username = model.DisplayName });
             }
             return View("Register", model);
         }
         
+        [HttpGet]
         public ActionResult Login()
         {
             var model = new LoginViewModel();
             return View("Login", model);
+        }
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+            var user = userDal.GetUser(model.Email);
+
+            base.LogUserIn(user.Email);
+
+            model.Email = Request.Params["Email"];
+
+            if (base.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home", null);
+            }
+            
+            return View("Login", model);
+
         }
     }
 }

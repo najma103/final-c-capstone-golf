@@ -21,7 +21,7 @@ namespace Capstone.Web.DAL
         {
             try
             {
-                string sql = $"INSERT INTO users VALUES (@displayname, @password, @email);";
+                string sql = $"INSERT INTO users VALUES (@displayname, @email, @password, @role, @salt);";
 
                 using (SqlConnection conn = new SqlConnection(databaseConnectionString))
                 {
@@ -30,7 +30,8 @@ namespace Capstone.Web.DAL
                     cmd.Parameters.AddWithValue("@displayname", newUser.DisplayName);
                     cmd.Parameters.AddWithValue("@password", newUser.Password);
                     cmd.Parameters.AddWithValue("@email", newUser.Email);
-
+                    cmd.Parameters.AddWithValue("@role", newUser.Role);
+                    cmd.Parameters.AddWithValue("@salt", "bat");
 
                     int result = cmd.ExecuteNonQuery();
 

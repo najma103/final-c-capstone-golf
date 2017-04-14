@@ -52,11 +52,11 @@ namespace Capstone.Web.Controllers
 	/// <summary>
         /// "Logs" the current user in
         /// </summary>
-        public void LogUserIn(string username)
+        public void LogUserIn(string email)
         {
             //Session.Abandon();
             //Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
-            Session[UsernameKey] = username;
+            Session[UsernameKey] = email;
         }
 
         public bool IsAuthenticated
