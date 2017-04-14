@@ -90,9 +90,17 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
+            var user = userDal.GetUser(model.Email);
+
+            base.LogUserIn(user.Email);
 
             model.Email = Request.Params["Email"];
-            //Session[UsernameKey] = Request.Params["Email"];
+
+            if (base.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home", null);
+            }
+            
             return View("Login", model);
 
         }
