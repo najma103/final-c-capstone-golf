@@ -7,8 +7,11 @@ namespace Capstone.Web
 {
     public class SessionKeys
     {
-        public static string owner = "Tournament";
-        public static string Email = "Email";
-        public static string UserId = "UserId";
+        public static string AccountType = "Bracket_Role";
+        public static string UserId = "Bracket_UserId";
+        public static string UsernameKey = "Bracket_Username";
+        public static string DisplayName = "Bracket_DisplayName";
+
+
     }
 }

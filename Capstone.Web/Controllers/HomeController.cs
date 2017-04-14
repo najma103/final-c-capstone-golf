@@ -11,6 +11,7 @@ namespace Capstone.Web.Controllers
     public class HomeController : Controller
     {
         private const string UsernameKey = "Bracket_Username";
+
         private readonly IUserDAL userDal;
         private readonly ITournamentDAL tournamentDal;
 
@@ -51,18 +52,21 @@ namespace Capstone.Web.Controllers
 	/// <summary>
         /// "Logs" the current user in
         /// </summary>
-        public void LogUserIn(string email)
+        public void LogUserIn(string email, string accountType, string displayName)
         {
             //Session.Abandon();
             //Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
-            Session[UsernameKey] = email;
+            Session[SessionKeys.UsernameKey] = email;
+            Session[SessionKeys.AccountType] = accountType;
+            Session[SessionKeys.DisplayName] = displayName;
+
         }
 
         public bool IsAuthenticated
         {
             get
             {
-                return Session[UsernameKey] != null;
+                return Session[SessionKeys.UsernameKey] != null;
             }
         }
 
@@ -73,9 +77,9 @@ namespace Capstone.Web.Controllers
                 string username = string.Empty;
 
                 //Check to see if user cookie exists, if not create it
-                if (Session[UsernameKey] != null)
+                if (Session[SessionKeys.UsernameKey] != null)
                 {
-                    username = (string)Session[UsernameKey];
+                    username = (string)Session[SessionKeys.UsernameKey];
                 }
 
                 return username;

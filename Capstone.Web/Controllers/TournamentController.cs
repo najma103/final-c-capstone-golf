@@ -10,8 +10,6 @@ namespace Capstone.Web.Controllers
 {
     public class TournamentController : Controller
     {
-        private string UsernameKey = "Bracket_Username";
-
         private readonly ITournamentDAL tournamentDal;
 
         public TournamentController(ITournamentDAL tournamentDal)
@@ -31,7 +29,7 @@ namespace Capstone.Web.Controllers
         public ActionResult CreateTournament(Tournament model)
         {
             // If the user has not logged in yet, make them log in
-            if (Session[UsernameKey] == null)
+            if (Session[SessionKeys.UsernameKey] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
