@@ -20,8 +20,8 @@ namespace Capstone.Web.DAL
 
         private string sqlCommandGetTournamentByName = "SELECT * FROM tournaments JOIN users ON tournament_id = user_id WHERE tournament_name LIKE '%' + @searchTerm + '%';";
 
-        private string insertSqlCommand = @"INSERT INTO tournaments values (@tournamentName,@orgId, @startDate, @endDate, @limit, @game,@status,@type)";
-
+        //private string insertSqlCommand = @"INSERT INTO tournaments values (@tournamentName,@orgId, @startDate, @endDate, @limit, @game,@status,@type)";
+        private string insertSqlCommand = @"INSERT INTO tournaments (tournament_name,organizer_id, start_date, end_date, competitor_limit, game, status, type) values (@tournamentName,@orgId, @startDate, @endDate, @limit,@game, @status,@type)";
         public TournamentSqlDal(string connectionString)
         {
             databaseConnectionString = connectionString;
@@ -151,11 +151,11 @@ namespace Capstone.Web.DAL
                     command.Parameters.AddWithValue("@tournamentName", newTournament.TournamentName);
                     command.Parameters.AddWithValue("@orgId", newTournament.OrganizerId);
 
-                    command.Parameters.AddWithValue("@startDate", newTournament.StartDate.GetDateTimeFormats());
-                    command.Parameters.AddWithValue("@endDate", newTournament.EndDate.GetDateTimeFormats());
+                    command.Parameters.AddWithValue("@startDate", newTournament.StartDate);
+                    command.Parameters.AddWithValue("@endDate", newTournament.EndDate);
                     command.Parameters.AddWithValue("@limit", newTournament.CompetitorLimit);
-  
-                    command.Parameters.AddWithValue("@game", newTournament.GameType);
+
+                    command.Parameters.AddWithValue("@game", newTournament.GameName);
                     command.Parameters.AddWithValue("@status", newTournament.GameStatus);
                     command.Parameters.AddWithValue("@type", newTournament.GameType);
 
@@ -164,7 +164,7 @@ namespace Capstone.Web.DAL
                     return rowAffected > 0;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }

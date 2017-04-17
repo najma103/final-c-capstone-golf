@@ -30,7 +30,7 @@ namespace Capstone.Web.Models
 
         public DateTime StartDate { get; set; }
 
-        [Required(ErrorMessage = "End date is required")]
+        //[Required(ErrorMessage = "End date is required")]
         public DateTime EndDate { get; set; }
         [Required(ErrorMessage = "# of Competitors is required")]
         public int CompetitorLimit { get; set; }

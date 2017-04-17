@@ -58,6 +58,7 @@ namespace Capstone.Web.Controllers
             model.OrganizerId = organizerId;
             model.StartDate = Convert.ToDateTime(model.StartDate);
             model.EndDate = Convert.ToDateTime(model.EndDate);
+            model.GameStatus = "Open";
             var newModel = tournamentDal.addNewTournament(model);
           
             if (newModel)
