@@ -66,9 +66,6 @@ namespace Capstone.Web.Controllers
                 return username;
             }
         }
-        public ActionResult Brackets(Tournament model)
-        {
-            return View("Brackets");
-        }
+
     }
 }

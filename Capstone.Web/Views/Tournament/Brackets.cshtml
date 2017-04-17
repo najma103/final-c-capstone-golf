@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Brackets";
+}
+@using Capstone.Web.Models;
+@model List<Match>
+
+<h2 class="text-center">First Round Brackets</h2>
+<div style="margin-left: 50px;">
+
+    @for (int i = 0; i < 8; i = i + 2)
+    {
+        <div class="outerBox">
+            <span> </span>
+            <div class="match">
+                <div id="box_0" class="box even">
+                    @i
+                </div>
+                <hr style="margin:0px; padding:0px" />
+                <div id="box_1" class="box odd">
+                    @i + 1
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+

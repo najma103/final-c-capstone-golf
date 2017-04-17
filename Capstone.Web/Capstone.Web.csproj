@@ -176,6 +176,7 @@
     <Content Include="Views\Tournament\Browse.cshtml" />
     <Content Include="Views\Tournament\Search.cshtml" />
     <Content Include="Views\Tournament\SearchResult.cshtml" />
+    <Content Include="Views\Tournament\Brackets.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

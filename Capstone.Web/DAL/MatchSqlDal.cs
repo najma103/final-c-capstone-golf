@@ -9,8 +9,9 @@ namespace Capstone.Web.DAL
 {
     public class MatchSqlDal
     {
-        private const string getTournamentMatchesSql = "SELECT * FROM matches where tournament_id = @tournament_id";
-        public List<Match> getTournamentMatches(int tournament_id)
+        private string connectionString = @"Data Source=DESKTOP-58F8CH1\SQLEXPRESS;Initial Catalog=CapstoneDB;Integrated Security=True";
+        private const string getTournamentMatchesSql = "SELECT * FROM matches where tournament_id = @tournamentId;";
+        public List<Match> getTournamentMatches(int tournamentId)
         {
             List<Match> tempMatch = new List<Match>();
             try
@@ -19,7 +20,7 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(getTournamentMatchesSql, conn);
-                    cmd.Parameters.AddWithValue("@tournament_id", tournament_id);
+                    cmd.Parameters.AddWithValue("@tournament_id", tournamentId);
 
                     SqlCommand command = new SqlCommand(getTournamentMatchesSql, conn);
                     SqlDataReader reader = command.ExecuteReader();
