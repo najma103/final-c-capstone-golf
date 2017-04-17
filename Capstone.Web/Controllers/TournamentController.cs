@@ -34,26 +34,40 @@ namespace Capstone.Web.Controllers
             }
             return View("Search");
         }
-        public ActionResult Detail()
+        public ActionResult Detail(string id)
         {
-            int tournamentId = Convert.ToInt32(Request.Params["id"]);
+            int tournamentId = Convert.ToInt32(id);
             Tournament model = tournamentDal.getATournament(tournamentId);
 
-            return View(model);
+            return View("Detail", model);
         }
         public ActionResult CreateTournament(Tournament model)
         {
             // If the user has not logged in yet, make them log in
             if (Session[SessionKeys.UsernameKey] == null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "User");
             }
 
-            //if (ModelState.IsValid)
-            //{
-            //    return View("CreateTournamentForm", model);
-            //}
-            return View("CreateTournamentForm",model);
+            if (!ModelState.IsValid)
+            {
+                return View("CreateTournamentForm", model);
+            }
+
+            int organizerId = Convert.ToInt32(Session[SessionKeys.UserId]);
+            model.OrganizerId = organizerId;
+            model.StartDate = Convert.ToDateTime(model.StartDate);
+            model.EndDate = Convert.ToDateTime(model.EndDate);
+            var newModel = tournamentDal.addNewTournament(model);
+          
+            if (newModel)
+            {
+                return RedirectToAction("Browse", "Tournament");
+            }
+            else
+            {
+                return View("CreateTournamentForm", model);
+            }
         }
 
         /*public ActionResult JoinTournament()

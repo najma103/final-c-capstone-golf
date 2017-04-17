@@ -12,5 +12,6 @@ namespace Capstone.Web.DAL
         List<Tournament> getAllTournaments();
         List<Tournament> GetTournamentByName(string searchTerm);
         Tournament getATournament(int tournamentId);
+        bool addNewTournament(Tournament newTournament);
     }
 }

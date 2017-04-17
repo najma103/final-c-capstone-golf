@@ -1,39 +1,24 @@
-﻿
+﻿@using Capstone.Web.Models;
 @{
     ViewBag.Title = "Tournament";
 }
-
-@using Capstone.Web.Models;
-
 @model Tournament
 
-<div class="container">
+<div class="container"style="background-color:aquamarine; margin-top:80px;">
+
     <div class="row">
         <div class="col-md-12">
-            <h1>BRACKET</h1>
-            <p>Put the bracket here</p>
+            <h2>@Model.TournamentName</h2>
         </div>
+        <div class="col-md-4">
+            <h3> Hosted By </h3><span>@Model.OrganizerName</span>
+            <h4>Status: @Model.GameStatus</h4>
+        </div>
+        <div class="col-md-4">
+            <h4>@Model.CompetitorLimit Player Single Eliminations</h4>
+            <h4>@Model.GameName</h4>
+        </div>
+        <div class="col-md-4"> </div>
     </div>
-    @for (int i = 0; i < 5; i++)
-    {
-        <div class="row" style="border-bottom: 1px solid grey; padding-bottom:10px; padding-top:10px;">
-            <div class="col-md-4">
-                <a href="google.com"><img src="~/Content/Images/Icon_Tournament.png" /></a>
-            </div>
-            <div class="col-md-4">
-                <h1>VS</h1>
-            </div>
-            <div class="col-md-4">
-                <a href="google.com"><img src="~/Content/Images/Icon_Tournament.png" /></a>
-            </div>
-        </div>
-    }
-
 </div>
-
-@using (Html.BeginForm("JoinTournament", "Tournament", FormMethod.Post))
-{
-        @Html.Hidden("tournamentId", Model.Id);
-        <button type="submit" value="Join This Tournament!"></button>
-}
-
+ 

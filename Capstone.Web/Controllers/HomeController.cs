@@ -28,26 +28,6 @@ namespace Capstone.Web.Controllers
             List<Tournament> model = tournamentDal.getAllTournaments();
             return View("Index",model);
         }
-        public ActionResult CreateTournamentForm()
-        {
-            //if(t.Name != "" && t.CompetitorLimit > 0 && t.CompetitorLimit <=16
-            //    && t.StartDate >= DateTime.UtcNow && t.EndDate > t.StartDate)
-
-	    Tournament model = new Tournament();
-
-            //If the user has not logged in yet, make them log in
-            //if (Session[SessionKeys.UserId] == null)
-            //{
-            //    return RedirectToAction("Login", "User");
-            //}
-
-            //if (ModelState.IsValid)
-            //{
-            return View("CreateTournamentForm", "Tournament", model);
-            //}
-
-            //return RedirectToAction("Index", "Home", null);
-        }
 	
 	/// <summary>
         /// "Logs" the current user in
