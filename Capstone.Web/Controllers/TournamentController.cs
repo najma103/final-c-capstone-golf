@@ -74,7 +74,7 @@ namespace Capstone.Web.Controllers
         public ActionResult Brackets(string id)
         {
             MatchSqlDal dal = new MatchSqlDal();
-            int tournamentId = Convert.ToInt32(id);
+            int tournamentId = Convert.ToInt32(2);
             var listOfMatches = dal.getTournamentMatches(tournamentId);
 
             return View("Brackets",listOfMatches);

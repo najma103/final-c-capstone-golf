@@ -171,7 +171,6 @@
     <Content Include="Views\Tournament\CreateTournamentForm.cshtml" />
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Tournament\Detail.cshtml" />
-    <Content Include="Views\Home\Brackets.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Tournament\Browse.cshtml" />
     <Content Include="Views\Tournament\Search.cshtml" />

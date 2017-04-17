@@ -42,7 +42,6 @@ namespace Capstone.Web.Models
 
         int[] brackets;
        
-
         public int[] Brackets
         {
             get { return brackets; }
