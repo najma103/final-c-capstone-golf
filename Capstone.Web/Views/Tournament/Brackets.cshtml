@@ -7,20 +7,20 @@
 <h2 class="text-center">First Round Brackets</h2>
 <div style="margin-left: 50px;">
 
-    @for (int i = 0; i < 8; i = i + 2)
+    @foreach(var Match in Model )
     {
-        <div class="outerBox">
-            <span> </span>
-            <div class="match">
-                <div id="box_0" class="box even">
-                    @i
-                </div>
-                <hr style="margin:0px; padding:0px" />
-                <div id="box_1" class="box odd">
-                    @i + 1
-                </div>
+    <div class="outerBox">
+        <span> </span>
+        <div class="match">
+            <div id="box_0" class="box even">
+                @Match.competitorName
+            </div>
+            <hr style="margin:0px; padding:0px" />
+            <div id="box_1" class="box even">
+                
             </div>
         </div>
+    </div>
     }
 
 </div>
