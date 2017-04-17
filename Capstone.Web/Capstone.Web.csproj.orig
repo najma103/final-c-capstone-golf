@@ -164,13 +164,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Views\Home\CreateTournament.cshtml" />
     <Content Include="Views\Users\Register.cshtml" />
-=======
+
     <Content Include="Views\Tournament\CreateTournamentForm.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
->>>>>>> 9b00ce454b170f59666d7a78d773698ed795eccb
+
     <Content Include="Views\Tournament\Detail.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
     <None Include="Web.Debug.config">

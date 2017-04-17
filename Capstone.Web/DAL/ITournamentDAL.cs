@@ -10,7 +10,7 @@ namespace Capstone.Web.DAL
     public interface ITournamentDAL
     {
         List<Tournament> getAllTournaments();
-
+        List<Tournament> GetTournamentByName(string searchTerm);
         Tournament getATournament(int tournamentId);
     }
 }

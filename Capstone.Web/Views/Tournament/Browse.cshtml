@@ -1,0 +1,60 @@
+﻿@using Capstone.Web.Models;
+
+@model List<Tournament>
+@{
+    ViewBag.Title = "Browse";
+}
+
+
+<div class='container-fluid -with-content-gutters -width-limited' style="margin-top:50px;">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Tournaments</h2>
+        </div>
+    </div>
+    <div class='table-responsive'>
+        <table class='table table-striped table-bordered'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Game</th>
+                    <th class='center'>Type</th>
+                    <th class='center'>Participants</th>
+                    <th class='center'>Started On</th>
+                    <th class='center'>Progress</th>
+                    <th>Organizer</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Tournament in Model)
+                {
+                    <tr>
+                        <td style='white-space: normal;'>
+                            @Html.ActionLink(Tournament.TournamentName, "Detail", "Tournament", new { id = Tournament.TournamentId }, null)
+                        </td>
+                        <td style='white-space: normal;'>
+                            @if (Tournament.GameName != "")
+                            {
+                                @Tournament.GameName
+                            }
+                            else
+                            {
+                                <span>&ndash;</span>
+                            }
+                        </td>
+                        <td class='center'>@Tournament.GameType</td>
+                        <td class='center'>@Tournament.CompetitorLimit</td>
+                        <td class='center'>@Tournament.StartDate.ToShortDateString()</td>
+                        <td>
+                            <div class='progress'>
+                                <div class='progress-bar progress-bar-success' style='width:0%'></div>
+                            </div>
+                        </td>
+                        <td class='organizer'>
+                            <a href="#">@Tournament.OrganizerName</a>
+                        </td>
+                    </tr>
+                }
+        </table>
+    </div>
+</div>

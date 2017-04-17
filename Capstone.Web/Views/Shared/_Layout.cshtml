@@ -31,7 +31,9 @@
     <nav class="navbar-inverse navbar-nav">
         <ul id="menu">
             <li>@Html.ActionLink("Home","Index","Home")</li>
-            <li>@Html.ActionLink("Tournaments", "Index", "Home")</li>
+            <li>@Html.ActionLink("Browse", "Browse", "Tournament")</li>
+            <li><a href='@Url.Action("Search","Tournament")'>
+                Search <i class="glyphicon glyphicon-search"></i></a></li>
             @if ((string)Session[SessionKeys.AccountType] == "organizer")
             {
                 <li>@Html.ActionLink("Create Tournament", "CreateTournament", "Tournament")</li>

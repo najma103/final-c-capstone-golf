@@ -22,18 +22,25 @@ namespace Capstone.Web.Models
 
         public List<User> UserList { get; set; }
 
+        [Required(ErrorMessage ="Tournament Name is required")]
         public string TournamentName { get; set; }
 
         public int OrganizerId { get; set; }
+        public string OrganizerName { get; set; }
 
         public DateTime StartDate { get; set; }
 
         [Required(ErrorMessage = "End date is required")]
         public DateTime EndDate { get; set; }
-
+        [Required(ErrorMessage = "# of Competitors is required")]
         public int CompetitorLimit { get; set; }
+        public string GameName { get; set; }
+        public string GameType { get; set; }
+        public string GameStatus { get; set; }
 
-         int[] brackets;
+        public string SearchTerm { get; set; }
+
+        int[] brackets;
        
 
         public int[] Brackets

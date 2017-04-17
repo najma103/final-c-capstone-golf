@@ -17,8 +17,23 @@ namespace Capstone.Web.Controllers
             this.tournamentDal = tournamentDal;
         }
 
+        // GET: Browse all tournaments 
+        public ActionResult Browse()
+        {
+            List<Tournament> model = tournamentDal.getAllTournaments();
+            return View("Browse", model);
+        }
 
-        // GET: Tournament
+        public ActionResult Search(Tournament tournament)
+        {
+            if (tournament.SearchTerm != null)
+            {
+                var tournamentList = tournamentDal.GetTournamentByName(tournament.SearchTerm);
+
+                return View("Browse", tournamentList);
+            }
+            return View("Search");
+        }
         public ActionResult Detail()
         {
             int tournamentId = Convert.ToInt32(Request.Params["id"]);
@@ -34,11 +49,11 @@ namespace Capstone.Web.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            if (ModelState.IsValid)
-            {
-                return View("CreateTournamentForm", model);
-            }
-            return View("Index");
+            //if (ModelState.IsValid)
+            //{
+            //    return View("CreateTournamentForm", model);
+            //}
+            return View("CreateTournamentForm",model);
         }
 
         /*public ActionResult JoinTournament()

@@ -16,9 +16,9 @@
         <h1>
             Tournaments
         </h1>
-        <a class='btn btn-default game-filter-toggle' href='#'>
-            All Games
-            <i class="fa fa-angle-down"></i>
+        <a class='btn btn-default game-filter-toggle' href='@Url.Action("Search","Tournament")'>
+            Search All Tournaments
+            <i class="glyphicon glyphicon-search"></i>
         </a>
         <br />
     </div>
@@ -46,9 +46,16 @@
                         @Html.ActionLink(Tournament.TournamentName,"Detail","Tournament", new { id = Tournament.TournamentId }, null)
                     </td>
                     <td style='white-space: normal;'>
-                        &ndash;
+                        @if (Tournament.GameName != "")
+                        {
+                           @Tournament.GameName
+                        }
+                        else
+                        {
+                            <span>&ndash;</span>
+                        }
                     </td>
-                    <td class='center'>&ndash;</td>
+                    <td class='center'>@Tournament.GameType</td>
                     <td class='center'>@Tournament.CompetitorLimit</td>
                     <td class='center'>@Tournament.StartDate.ToShortDateString()</td>
                     <td>
@@ -57,7 +64,7 @@
                         </div>
                     </td>
                     <td class='organizer'>
-                        <a href="#">@Tournament.OrganizerId</a>
+                        <a href="#">@Tournament.OrganizerName</a>
                     </td>
                 </tr>
                 }

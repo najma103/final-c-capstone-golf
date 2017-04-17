@@ -1,15 +1,14 @@
-﻿
+﻿@using Capstone.Web.Models;
+@model Tournament
 @{
     ViewBag.Title = "CreateTournamentForm";
 }
 
-@model Tournament
-
-<h2>CreateTournament</h2>
+<h2>Create New Tournament</h2>
 
 <div id="create" style="margin: 20px;">
 
-    @using (Html.BeginForm("CreateTournament", "Home", FormMethod.Post))
+    @using (Html.BeginForm("CreateTournament", "Tournament", FormMethod.Post))
     {
 
         <div>

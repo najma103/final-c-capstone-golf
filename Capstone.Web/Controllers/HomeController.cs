@@ -26,7 +26,7 @@ namespace Capstone.Web.Controllers
         {
             //return RedirectToAction("List", "Tournament");
             List<Tournament> model = tournamentDal.getAllTournaments();
-            return View(model);
+            return View("Index",model);
         }
         public ActionResult CreateTournamentForm()
         {
@@ -52,13 +52,14 @@ namespace Capstone.Web.Controllers
 	/// <summary>
         /// "Logs" the current user in
         /// </summary>
-        public void LogUserIn(string email, string accountType, string displayName)
+        public void LogUserIn(string email, string accountType, string displayName, int userId)
         {
             //Session.Abandon();
             //Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
             Session[SessionKeys.UsernameKey] = email;
             Session[SessionKeys.AccountType] = accountType;
             Session[SessionKeys.DisplayName] = displayName;
+            Session[SessionKeys.UserId] = userId;
 
         }
 

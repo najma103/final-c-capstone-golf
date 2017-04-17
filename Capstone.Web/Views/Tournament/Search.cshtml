@@ -1,0 +1,23 @@
+﻿@using Capstone.Web.Models;
+@model  Tournament
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <h2>Search</h2>
+        @using (Html.BeginForm("Search", "Tournament", FormMethod.Get))
+        {
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control", placeholder = "Search four tournament" })
+                @Html.ValidationMessageFor(m => m.SearchTerm)
+            </div>
+
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>Search</button>
+        }
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+
