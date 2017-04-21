@@ -126,9 +126,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\bowling.jpg" />
+    <Content Include="Content\images\bracketsicon.png" />
+    <Content Include="Content\images\icon_tournament.png" />
     <Content Include="Content\jquery.bracket.min.css" />
     <Content Include="Content\style.css" />
-    <Content Include="Content\stylesheet.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -176,6 +178,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Bracket.cs" />
+    <Compile Include="Models\InviteViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Match.cs" />
     <Compile Include="Models\NewUserViewModel.cs" />
@@ -204,6 +207,7 @@
     <Content Include="Views\Tournament\Search.cshtml" />
     <Content Include="Views\Tournament\SearchResult.cshtml" />
     <Content Include="Views\Tournament\Brackets.cshtml" />
+    <Content Include="Views\Tournament\Invite.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

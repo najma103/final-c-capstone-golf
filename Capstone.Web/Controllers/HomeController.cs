@@ -26,7 +26,7 @@ namespace Capstone.Web.Controllers
         {
             //return RedirectToAction("List", "Tournament");
             List<Tournament> model = tournamentDal.getAllTournaments();
-            return View("Index",model);
+            return RedirectToAction("Browse", "Tournament");
         }
 	
 	/// <summary>

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Capstone.Web.DAL;
 using Capstone.Web.Models;
+using System.Net.Mail;
+using System.Net;
 
 namespace Capstone.Web.Controllers
 {
@@ -81,10 +83,33 @@ namespace Capstone.Web.Controllers
 
             return View("Brackets",listOfMatches);
         }
-        /*public ActionResult JoinTournament()
+
+        [HttpGet]
+        public ActionResult Invite()
         {
-            int userid = (int)Session["currentUser"];
-            int tournamentId = Convert.ToInt32(Request.Params["tournamentId"]);
-        }*/
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Invite(InviteViewModel invite)
+        {
+            string fullBody = invite.MessageBody + "\n\n http://localhost:55601/Tournament/Register/?id=" + invite.TournamentId;
+
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
+            {
+                Credentials = new NetworkCredential("tournamentinvitenoreply", "manydegreesofentropy"),
+                EnableSsl = true
+            };
+
+            client.Send("tournamentinvitenoreply@gmail.com", invite.EmailAddress, invite.MessageHead, fullBody);
+
+            return View();
+        }
+        //public ActionResult Join()
+        //{
+
+        //    int userid = (int)Session["currentUser"];
+        //    int tournamentId = Convert.ToInt32(Request.Params["tournamentId"]);
+        //}
     }
 }

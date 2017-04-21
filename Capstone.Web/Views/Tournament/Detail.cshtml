@@ -5,7 +5,7 @@
 @model Tournament
 
 <div class="container">
-    <div class="jumbotron" style="margin-top:40px;">
+    <div class="" style="margin-top:40px;">
 
         <div class="row">
             <div class="col-md-12">
@@ -24,9 +24,18 @@
 
             </div>
             <br />
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <button id="bracket" type="submit" class="btn btn-default">Generate Brackets</button>
             </div>
+            @if (Session[SessionKeys.UsernameKey] != null)
+            {
+                if ((int)Session[SessionKeys.UserId] == Model.OrganizerId)
+                {
+            <div class="col-md-6" style="padding-top:10px">
+                @Html.ActionLink("Invite Player", "Invite", "Tournament", new { id = Model.TournamentId }, null)
+            </div>
+                }
+            }
         </div>
     </div>
 

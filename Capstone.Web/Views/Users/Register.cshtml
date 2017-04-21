@@ -9,6 +9,7 @@
     <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
+            @Html.Hidden("tournament_id", Request.QueryString["id"])
             <div class="form-group">
                 @Html.LabelFor(m => m.EmailAddress)
                 @Html.TextBoxFor(m => m.EmailAddress, new { placeHolder = "Email", @class = "form-control" })

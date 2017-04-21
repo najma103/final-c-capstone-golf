@@ -43,6 +43,7 @@ namespace Capstone.Web.Controllers
         [Route("users/register")]
         public ActionResult RegisterNewUser(NewUserViewModel model)
         {
+           
             if (base.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Home", new { username = base.CurrentUser });
@@ -71,6 +72,7 @@ namespace Capstone.Web.Controllers
                     //Salt = salt
                 };
 
+                
                 // Add the user to the database
                 userDal.CreateUser(newUser);
 

@@ -1,0 +1,36 @@
+﻿@model InviteViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <h2 style="text-align:center">Invite Players</h2>
+    </div>
+    <div style="text-align:center"><p>Use this form to invite a player to your tournament</p></div>
+    @using (Html.BeginForm("Invite","Tournament",FormMethod.Post))
+    {
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" style="margin-bottom:40px;">
+            <h2>Create New Tournament</h2>
+            <div class="form-group">
+                @Html.LabelFor(m => m.EmailAddress)
+                @Html.TextBoxFor(m => m.EmailAddress, new { placeHolder = "Email Address", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EmailAddress)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MessageBody)
+                @Html.TextAreaFor(m => m.MessageBody, new { placeHolder = "Type your message here...", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.MessageBody)
+            </div>
+            <button type="submit" class="btn btn-default">Send Invitation</button>
+        </div>
+        <div class="col-sm-4"></div>
+        <br />
+    </div>
+    }
+</body>
+</html>
