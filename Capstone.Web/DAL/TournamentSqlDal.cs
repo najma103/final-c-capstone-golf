@@ -20,7 +20,6 @@ namespace Capstone.Web.DAL
 
         private string sqlCommandGetTournamentByName = "SELECT * FROM tournaments JOIN users ON tournament_id = user_id WHERE tournament_name LIKE '%' + @searchTerm + '%';";
 
-        //private string insertSqlCommand = @"INSERT INTO tournaments values (@tournamentName,@orgId, @startDate, @endDate, @limit, @game,@status,@type)";
         private string insertSqlCommand = @"INSERT INTO tournaments (tournament_name,organizer_id, start_date, end_date, competitor_limit, game, status, type) values (@tournamentName,@orgId, @startDate, @endDate, @limit,@game, @status,@type)";
         public TournamentSqlDal(string connectionString)
         {

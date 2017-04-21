@@ -4,11 +4,13 @@
 }
 @model Tournament
 
-<div class="container"style="background-color:aquamarine; margin-top:80px;">
+
+<div class="jumbotron" style="margin-top:80px;">
 
     <div class="row">
         <div class="col-md-12">
             <h2>@Model.TournamentName</h2>
+            <input type="hidden" id="tourId" value="@Model.TournamentId" />
         </div>
         <div class="col-md-4">
             <h3> Hosted By </h3><span>@Model.OrganizerName</span>
@@ -18,7 +20,19 @@
             <h4>@Model.CompetitorLimit Player Single Eliminations</h4>
             <h4>@Model.GameName</h4>
         </div>
-        <div class="col-md-4"> </div>
+        <div class="col-md-4">
+            <br />
+            <button id="bracket" type="submit" class="btn btn-default"></button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="minimal" class="demo">
+
+            </div>
+        </div>
     </div>
 </div>
- 
+
+

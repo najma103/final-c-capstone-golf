@@ -3,6 +3,19 @@ DROP TABLE matches;
 DROP TABLE tournament_competitors;
 DROP TABLE tournaments;
 DROP TABLE users;
+DROP TABLE brackets
+
+CREATE TABLE brackets (
+	bracket_id int identity not null,
+	player_name varchar(50) not null,
+	player_email varchar(50) null,
+	tournament_id int not null,
+	seed_num int,
+	game_num int,
+	
+	constraint pk_bracket_id primary key (bracket_id),
+	constraint fk_tournament_id foreign key (tournament_id),
+);
 
 CREATE TABLE users (
 	user_id int identity not null,
@@ -40,11 +53,10 @@ CREATE TABLE tournament_competitors(
 
 CREATE TABLE matches (
 	match_id int identity not null,
-	user1_id int,
-	user2_id int,
+	competitor_id int not null,
 	tournament_id int not null,
-	tier int not null,
-	position int not null,
+	tier int null,
+	position int null,
 
 	
 	CONSTRAINT pk_match_id primary key (match_id),

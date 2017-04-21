@@ -11,6 +11,8 @@ namespace Capstone.Web.DAL
     {
         private string connectionString = @"Data Source=desktop-58f8ch1\sqlexpress;Initial Catalog=Capstone;Integrated Security=True";
         private const string getTournamentMatchesSql = "SELECT * FROM matches where tournament_id = @tournamentId;";
+
+
         public List<Match> getTournamentMatches(int tournamentId)
         {
             List<Match> tempMatch = new List<Match>();

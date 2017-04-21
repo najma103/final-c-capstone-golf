@@ -38,6 +38,8 @@ namespace Capstone.Web.Controllers
         {
             int tournamentId = Convert.ToInt32(id);
             Tournament model = tournamentDal.getATournament(tournamentId);
+            
+
 
             return View("Detail", model);
         }
