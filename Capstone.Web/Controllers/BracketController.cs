@@ -25,21 +25,6 @@ namespace Capstone.Web.Controllers
             List<string[]> listTeams = t.GetMatches(bracketList);
             model.teams = listTeams;
 
-            //Team t = new Team();
-            //for (int i = 0; i < bracketList.Count; i = i+2)
-            //{
-            //    string[] twoTeams = new string[2];
-            //    twoTeams[0] = bracketList[i].playerName;
-            //    if (i < bracketList.Count-1)
-            //    {
-            //        twoTeams[1] = bracketList[i + 1].playerName;
-            //    }
-               
-
-            //    Team.teams.Add(twoTeams);
-            //}
-
-
             return Json(model);
         }
 
